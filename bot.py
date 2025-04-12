@@ -33,7 +33,6 @@ async def help_command(update, context):
 /start --> Welcome
 /channels --> For navigating to the channel which will make your defence journey easy
 /Ai_Assers --> Get assistance from AI Assers, your GTO, IO, and Psych guide
-/listmodels --> List available Gemini models
         """
     )
 
@@ -67,14 +66,14 @@ async def ai_assers(update, context):
         await update.message.reply_text("Please provide a question after /Ai_Assers, e.g., /Ai_Assers What is the capital of France?")
 
 # List models command
-async def listmodels(update, context):
-    try:
-        models = genai.list_models()
-        model_list = "\n".join([f"- {model.name}: {model.description}" for model in models])
-        await update.message.reply_text(f"Available Gemini models:\n{model_list}")
-    except Exception as e:
-        await update.message.reply_text(f"Error listing models: {str(e)}")
-        logger.error(f"Error listing models: {str(e)}")
+# async def listmodels(update, context):
+#     try:
+#         models = genai.list_models()
+#         model_list = "\n".join([f"- {model.name}: {model.description}" for model in models])
+#         await update.message.reply_text(f"Available Gemini models:\n{model_list}")
+#     except Exception as e:
+#         await update.message.reply_text(f"Error listing models: {str(e)}")
+#         logger.error(f"Error listing models: {str(e)}")
 
 # Echo or handle unknown commands
 async def echo(update, context):
@@ -96,7 +95,7 @@ application.add_handler(CommandHandler("start", start))
 application.add_handler(CommandHandler("help", help_command))
 application.add_handler(CommandHandler("channels", channels))
 application.add_handler(CommandHandler("Ai_Assers", ai_assers))
-application.add_handler(CommandHandler("listmodels", listmodels))
+# application.add_handler(CommandHandler("listmodels", listmodels))
 application.add_handler(MessageHandler(filters.COMMAND, echo))
 application.add_error_handler(error)
 
