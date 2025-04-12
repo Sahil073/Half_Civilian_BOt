@@ -3,17 +3,17 @@ import google.generativeai as genai
 import logging
 import asyncio
 import httpx
-
+import os
 # Set up logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Replace with your Gemini API key
-GEMINI_API_KEY = "AIzaSyDnfI_AcCVQ0q9axJN0WxSo1Eiyb0JmrhI"
+GEMINI_API_KEY = os.getenv("AIzaSyDnfI_AcCVQ0q9axJN0WxSo1Eiyb0JmrhI")
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Replace with your Telegram Bot Token
-TOKEN = "7617607809:AAGGUCd685JDRWSoBE7J78Te5aaT_rsrcXk"
+TOKEN = os.getenv("7617607809:AAGGUCd685JDRWSoBE7J78Te5aaT_rsrcXk")
 
 # Optional: Configure proxy as a URL string
 PROXY_URL = "http://your-proxy:port"  # Replace with your actual proxy (e.g., "http://proxy.example.com:8080")
