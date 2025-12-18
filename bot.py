@@ -8,16 +8,16 @@ import os
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Replace with your Gemini API key
+
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 TOKEN = os.getenv("TOKEN")
 
-# Optional: Configure proxy as a URL string
-PROXY_URL = "http://your-proxy:port"  # Replace with your actual proxy (e.g., "http://proxy.example.com:8080")
 
-# Create the Application instance with proxy (if needed)
-if PROXY_URL and PROXY_URL != "http://your-proxy:port":  # Check if proxy is set
+PROXY_URL = "http://your-proxy:port"
+
+
+if PROXY_URL and PROXY_URL != "http://your-proxy:port": 
     application = Application.builder().token(TOKEN).proxy(PROXY_URL).build()
 else:
     application = Application.builder().token(TOKEN).build()
@@ -46,7 +46,7 @@ async def channels(update, context):
         "Join us for updates!"
     )
 
-# Ai_Assers command (using Gemini API) with free key handling
+# Ai_Assers command with free key handling
 async def ai_assers(update, context):
     if context.args:
         user_query = " ".join(context.args)
