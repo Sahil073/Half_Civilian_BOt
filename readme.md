@@ -5,7 +5,7 @@ An intelligent Telegram bot powered by Google's Gemini AI to assist SSB (Service
 ## 🔗 Live Bot
 
 **Try it now:** @half_civilian_7021_bot
-
+https://chat-bot-alpha-two.vercel.app/
 ---
 
 ## ✨ Features
